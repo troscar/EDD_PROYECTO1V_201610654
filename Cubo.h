@@ -1,6 +1,6 @@
 #ifndef CUBO_H_INCLUDED
 #define CUBO_H_INCLUDED
-#include "NodoAlbum.h"
+#include "NodoCubo.h"
 #include <string>
 #include <sstream>
 #include <iostream>
