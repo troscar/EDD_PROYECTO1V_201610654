@@ -11,10 +11,10 @@
 class Cubo
 {
      public:
-        NodoAlbum *root;
+        NodoCubo *root;
         Cubo(string nombre)
         {
-            root = new NodoAlbum(nombre,"","");
+            root = new NodoCubo(nombre,"","");
             fila = root;
             columna = root;
 
@@ -22,9 +22,9 @@ class Cubo
 
         
         
-        NodoAlbum* buscar_columna(string anyo)
+        NodoCubo* buscar_columna(string anyo)
         {
-            NodoAlbum *temp = root->getNext();
+            NodoCubo *temp = root->getNext();
             while (temp != 0)
             {
                 
@@ -37,9 +37,9 @@ class Cubo
             return 0;
         }
 
-        NodoAlbum* buscar_fila(string mes )
+        NodoCubo* buscar_fila(string mes )
         {
-            NodoAlbum *temp = root;
+            NodoCubo *temp = root;
             while(temp!=0)
             {
                 if (temp->getName().compare(mes)==0)
@@ -52,9 +52,9 @@ class Cubo
         }
     // SOLO INGRESA EL NODO CABECERA DE DEL CUBO EN EL EJE DE LOS AÑOS CONECTADO CON LAS CABECERAS
     // SOLO UTILIZAR DESPUES DE COMPROBAR QUE NO EXISTEN 
-        NodoAlbum* insertar_nueva_columna_ordenada(string nuevo_anyo)
+        NodoCubo* insertar_nueva_columna_ordenada(string nuevo_anyo)
         {
-            NodoAlbum *temp = root;
+            NodoCubo *temp = root;
             bool   vacio = true;
             bool fin = false;
             if(root->getNext() != 0){
@@ -67,7 +67,7 @@ class Cubo
                 
                 if((temp->getName().compare(nuevo_anyo) == -1)){
                     if(temp->getNext()->getName().compare(nuevo_anyo) == 1){
-                        NodoAlbum *nuevo = new NodoAlbum(nuevo_anyo,"","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                         temp->getNext()->setBefore(nuevo);
                         nuevo->setBefore(temp);
                         nuevo->setNext(temp->getNext());
@@ -77,7 +77,7 @@ class Cubo
                 }
                 if(temp->getName().compare(nuevo_anyo)== 1){
                     if(temp->getBefore() == root){
-                        NodoAlbum *nuevo = new NodoAlbum(nuevo_anyo,"","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                         temp->getBefore()->setNext(nuevo);
                         nuevo->setBefore(temp->getBefore());
                         nuevo->setNext(temp);
@@ -90,23 +90,23 @@ class Cubo
             }
 
             if(vacio == true){
-                NodoAlbum *nuevo = new NodoAlbum(nuevo_anyo,"","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                 root->setNext(nuevo);
                 nuevo->setBefore(root);
                 return nuevo;
             }
             if(vacio == false)
             {
-                NodoAlbum *nuevo = new NodoAlbum(nuevo_anyo,"","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                 temp->setNext(nuevo);
                 nuevo->setBefore(temp);
                 return nuevo;
             }
         }
 
-        NodoAlbum* insertar_nueva_fila_ordenada(string nuevo_mes)
+        NodoCubo* insertar_nueva_fila_ordenada(string nuevo_mes)
         {
-            NodoAlbum *temp = root;
+            NodoCubo *temp = root;
             bool   vacio = true;
             if(root->getDown() != 0){
                 vacio =false;
@@ -116,7 +116,7 @@ class Cubo
             {   
                 if((temp->getName().compare(nuevo_mes) == -1)){
                     if(temp->getDown()->getName().compare(nuevo_mes) == 1){
-                        NodoAlbum *nuevo = new NodoAlbum(nuevo_mes,"","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                         temp->getDown()->setUp(nuevo);
                         nuevo->setUp(temp);
                         nuevo->setDown(temp->getDown());
@@ -126,7 +126,7 @@ class Cubo
                 }   
                 if(temp->getName().compare(nuevo_mes)== 1){
                     if(temp->getUp() == root){
-                        NodoAlbum *nuevo = new NodoAlbum(nuevo_mes,"","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                         temp->getUp()->setDown(nuevo);
                         nuevo->setUp(temp->getUp());
                         nuevo->setDown(temp);
@@ -138,23 +138,23 @@ class Cubo
             }
 
             if(vacio == true){
-                NodoAlbum *nuevo = new NodoAlbum(nuevo_mes,"","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                 root->setDown(nuevo);
                 nuevo->setUp(root);
                 return nuevo;
             }
             if(vacio == false)
             {
-                NodoAlbum *nuevo = new NodoAlbum(nuevo_mes,"","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                 temp->setDown(nuevo);
                 nuevo->setUp(temp);
                 return nuevo;
             }
         }
 
-        void insertar_nodo_conectando(NodoAlbum * nuevo){
-            NodoAlbum * columna = buscar_columna(nuevo->getYear());
-            NodoAlbum * fila = buscar_fila(nuevo->getMonth());
+        void insertar_nodo_conectando(NodoCubo * nuevo){
+            NodoCubo * columna = buscar_columna(nuevo->getYear());
+            NodoCubo * fila = buscar_fila(nuevo->getMonth());
 
             // NO EXISTE NNGUN CABEZAL 
             if(fila==0 && columna==0){
@@ -337,9 +337,9 @@ class Cubo
         }
         
         void recorrer_cubo_en_colum(){
-            NodoAlbum* auxFila = root;
-            NodoAlbum* auxColu ;
-            NodoAlbum* auxAde ;
+            NodoCubo* auxFila = root;
+            NodoCubo* auxColu ;
+            NodoCubo* auxAde ;
             string nod;
             while (auxFila!=0)
             {
@@ -364,9 +364,9 @@ class Cubo
             cout << "---------FIN DE album -----------"<< endl;
         }
         void recorrer_cubo_en_fila(){
-            NodoAlbum* auxFila ;
-            NodoAlbum* auxColu = root;
-            NodoAlbum* auxAde;
+            NodoCubo* auxFila ;
+            NodoCubo* auxColu = root;
+            NodoCubo* auxAde;
             string nod;
             while (auxColu!=0)
             {
@@ -394,10 +394,10 @@ class Cubo
         }
 
 
-        NodoAlbum* buscar_nodo_(string nombre){
-            NodoAlbum* auxFila = root;
-            NodoAlbum* auxColu ;
-            NodoAlbum* auxAde ;
+        NodoCubo* buscar_nodo_(string nombre){
+            NodoCubo* auxFila = root;
+            NodoCubo* auxColu ;
+            NodoCubo* auxAde ;
             string nod;
             while (auxFila!=0)
             {
@@ -432,8 +432,8 @@ class Cubo
         }
 
         private:
-        NodoAlbum* fila;
-        NodoAlbum* columna;
+        NodoCubo* fila;
+        NodoCubo* columna;
 
 };
 #endif //CUBO_H_INCLUDED

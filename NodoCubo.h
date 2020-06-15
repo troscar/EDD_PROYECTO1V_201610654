@@ -4,14 +4,14 @@
 #include <string>
 using namespace std;
 
-class NodoAlbum{
+class NodoCubo{
     public:
-        NodoAlbum(string name_,string month_,string year_)
+        NodoCubo(string name_,string month_,string year_)
         {
             name = name_;
             month = month_;
             year = year_;
-            listta= 0;
+            
             rating = 0;
 
             next = 0;
@@ -21,12 +21,11 @@ class NodoAlbum{
             ade  = 0;
             atr = 0; 
         }
-        NodoAlbum(string name_,string month_,string year_,ArbolAvl arbo,double r)
+        NodoCubo(string name_,string month_,string year_,double r)
         {
             name = name_;
             month = month_;
             year = year_;
-            listta= l;
             rating = r;
 
             next = 0;
@@ -43,36 +42,35 @@ class NodoAlbum{
         string getMonth(){ return month;}
         string getYear() {return year;}
         double getRating(){return rating;}
-        Lista<NodoSong*> *getLista(){return listta;}
+        //ArbolAvl *getarbol(){return arbol;}
         
 
-        NodoAlbum *getNext(){ return next;}
-        NodoAlbum *getBefore() {return before;}
-        NodoAlbum *getUp(){ return up;}
-        NodoAlbum *getDown() {return down;}
-        NodoAlbum *getAde(){ return ade;}
-        NodoAlbum *getAtr() {return atr;}
-        void setNext(NodoAlbum *n) { next = n;}
-        void setBefore(NodoAlbum *n){ before = n;}
-        void setUp(NodoAlbum *n) { up = n;}
-        void setDown(NodoAlbum *n){ down = n;}
-        void setAde(NodoAlbum *n) { ade = n;}
-        void setAtr(NodoAlbum *n){ atr = n;}
+        NodoCubo *getNext(){ return next;}
+        NodoCubo *getBefore() {return before;}
+        NodoCubo *getUp(){ return up;}
+        NodoCubo *getDown() {return down;}
+        NodoCubo *getAde(){ return ade;}
+        NodoCubo *getAtr() {return atr;}
+        void setNext(NodoCubo *n) { next = n;}
+        void setBefore(NodoCubo *n){ before = n;}
+        void setUp(NodoCubo *n) { up = n;}
+        void setDown(NodoCubo *n){ down = n;}
+        void setAde(NodoCubo *n) { ade = n;}
+        void setAtr(NodoCubo *n){ atr = n;}
         
         
      private:
-        Lista<NodoSong*> *listta;
         string name;
         string month;
         string year;
         double rating;
 
-        NodoAlbum *next;
-        NodoAlbum *before;
-        NodoAlbum *up;
-        NodoAlbum *down;
-        NodoAlbum *ade;
-        NodoAlbum *atr;
+        NodoCubo *next;
+        NodoCubo *before;
+        NodoCubo *up;
+        NodoCubo *down;
+        NodoCubo *ade;
+        NodoCubo *atr;
         
     };
     #endif
