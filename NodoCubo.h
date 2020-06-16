@@ -6,13 +6,12 @@ using namespace std;
 
 class NodoCubo{
     public:
-        NodoCubo(string name_,string month_,string year_)
+        NodoCubo(string name_,string month_,string year_,string pas)
         {
             name = name_;
             month = month_;
             year = year_;
-            
-            rating = 0;
+            pass = pas;
 
             next = 0;
             before = 0;
@@ -21,12 +20,12 @@ class NodoCubo{
             ade  = 0;
             atr = 0; 
         }
-        NodoCubo(string name_,string month_,string year_,double r)
+        NodoCubo(string name_,string month_,string year_,string pas)
         {
             name = name_;
             month = month_;
             year = year_;
-            rating = r;
+            pass = pas;
 
             next = 0;
             before = 0;
@@ -41,7 +40,7 @@ class NodoCubo{
         string getName() {return name;}
         string getMonth(){ return month;}
         string getYear() {return year;}
-        double getRating(){return rating;}
+        string getPass(){return pass;}
         //ArbolAvl *getarbol(){return arbol;}
         
 
@@ -63,7 +62,7 @@ class NodoCubo{
         string name;
         string month;
         string year;
-        double rating;
+        string  pass;
 
         NodoCubo *next;
         NodoCubo *before;
