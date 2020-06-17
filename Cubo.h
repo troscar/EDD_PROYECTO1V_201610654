@@ -67,7 +67,7 @@ class Cubo
                 
                 if((temp->getName().compare(nuevo_anyo) == -1)){
                     if(temp->getNext()->getName().compare(nuevo_anyo) == 1){
-                        NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                         temp->getNext()->setBefore(nuevo);
                         nuevo->setBefore(temp);
                         nuevo->setNext(temp->getNext());
@@ -77,7 +77,7 @@ class Cubo
                 }
                 if(temp->getName().compare(nuevo_anyo)== 1){
                     if(temp->getBefore() == root){
-                        NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                         temp->getBefore()->setNext(nuevo);
                         nuevo->setBefore(temp->getBefore());
                         nuevo->setNext(temp);
@@ -90,14 +90,14 @@ class Cubo
             }
 
             if(vacio == true){
-                NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                 root->setNext(nuevo);
                 nuevo->setBefore(root);
                 return nuevo;
             }
             if(vacio == false)
             {
-                NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_anyo,"","");
                 temp->setNext(nuevo);
                 nuevo->setBefore(temp);
                 return nuevo;
@@ -116,7 +116,7 @@ class Cubo
             {   
                 if((temp->getName().compare(nuevo_mes) == -1)){
                     if(temp->getDown()->getName().compare(nuevo_mes) == 1){
-                        NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                         temp->getDown()->setUp(nuevo);
                         nuevo->setUp(temp);
                         nuevo->setDown(temp->getDown());
@@ -126,7 +126,7 @@ class Cubo
                 }   
                 if(temp->getName().compare(nuevo_mes)== 1){
                     if(temp->getUp() == root){
-                        NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","","");
+                        NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                         temp->getUp()->setDown(nuevo);
                         nuevo->setUp(temp->getUp());
                         nuevo->setDown(temp);
@@ -138,14 +138,14 @@ class Cubo
             }
 
             if(vacio == true){
-                NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                 root->setDown(nuevo);
                 nuevo->setUp(root);
                 return nuevo;
             }
             if(vacio == false)
             {
-                NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","","");
+                NodoCubo *nuevo = new NodoCubo(nuevo_mes,"","");
                 temp->setDown(nuevo);
                 nuevo->setUp(temp);
                 return nuevo;

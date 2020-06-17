@@ -1,16 +1,22 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Cubo.h"
+#include "NodoCubo.h" 
 
 using namespace std;
 
-#include "Cubo.h"
-#include "NodoCubo.h"
+
 
 void menu ();
 
 //ArbolBB* Arbol = new ArbolBB();
-// CLASE DE EJEMPLO QUE SE ALMACENARA EN LA PILA
+// CLASE DE EJEMPLO QUE SE ALMACENARA EN LA PILA'
+
+    Cubo *Matriz = new Cubo("Admin");
+    NodoCubo *verificar; 
+    NodoCubo *noodo;
+    
 int main()
 {
     
@@ -25,9 +31,10 @@ void menu()
     int opcion = 0;
     string nombre = "",usuario = "",passw = "", depar = "", empre = "";
     string todo;
-    Cubo *Matriz = new Cubo("Admin");
-    NodoCubo *verificar; 
-    do{
+    noodo = new NodoCubo("Julio","Max","Guate","julio");
+    Matriz->insertar_nodo_conectando(noodo);Matriz->recorrer_cubo_en_colum();
+    Matriz->recorrer_cubo_en_fila();
+    while(opcion!=6){
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Renta de Activos  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%% 1. Iniciar Sesion  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Ingresar Opcion:  %%%%%%%%%%%%%%%%%%%"<<endl;
@@ -35,6 +42,8 @@ void menu()
         switch (opcion)
         {
         case 1:    
+                system("cls");
+                verificar = 0;
                 cout<< "%%%%%%%%%%%%%%%%%%%% Renta de Activos %%%%%%%%%%%%%%%%%%%%"<<endl;
                 cout<< "%%%%%%%%%%%%%%%%%%%%      Login       %%%%%%%%%%%%%%%%%%%%"<<endl;
                 cout<< ">> ...Ingresar Usuario...: <<" <<endl;
@@ -45,14 +54,15 @@ void menu()
                 cin >> depar;
                 cout<< ">> ...Ingresar Empresa...:  <<" <<endl;
                 cin >> empre;
-                // busscar USUARIO Y CONFIRMAR CONTRASEÑAS
-                verificar = Matriz->buscar_nodo_(usuario);
-                if(verificar!=0){
-                    if((verificar->getPass().compare(passw))&&(verificar->getYear().compare(depar))&& (verificar->getMonth().compare(empre)))
-                    {
+                //busscar USUARIO Y CONFIRMAR CONTRASEÑAS
+                Matriz->recorrer_cubo_en_colum();
+                //verificar = Matriz->buscar_nodo_(usuario);
+                //if(verificar!=0){
+                    //if((verificar->getPass().compare(passw))&&(verificar->getYear().compare(depar))&& (verificar->getMonth().compare(empre)))
+                /*    {
                         
                     }
-                }
+                }*/
                 
                 
                 system("pause");
@@ -67,6 +77,7 @@ void menu()
 
         }
     system("cls");
-    }while(opcion!=3);
+    }
+    system("pause");
 
 }

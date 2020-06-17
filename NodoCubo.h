@@ -6,12 +6,12 @@ using namespace std;
 
 class NodoCubo{
     public:
-        NodoCubo(string name_,string month_,string year_,string pas)
+        NodoCubo(string name_,string month_,string year_)
         {
             name = name_;
-            month = month_;
-            year = year_;
-            pass = pas;
+            month = "0";
+            year = "0";
+            pass = "0";
 
             next = 0;
             before = 0;
