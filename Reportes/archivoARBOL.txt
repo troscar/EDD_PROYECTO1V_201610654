@@ -1,9 +1,21 @@
 digraph G{ 
 nodesep=0.8;
 ranksep=0.5;
-{rank=same;"x";}
-
-{rank=same;"b";"z";}
-"x"->"b";
+{rank=same;d;}{rank=same;d;}
+{rank=same;"a";"x";} 
+"d"->"a";
+"d"->"x";
+{rank=same;a;}
+{rank=same;"c";} 
+"a"->"c";
+{rank=same;c;}
+{rank=same;x;}
+{rank=same;"i";"z";} 
+"x"->"i";
 "x"->"z";
+{rank=same;i;}
+{rank=same;"m";} 
+"i"->"m";
+{rank=same;m;}
+{rank=same;z;}
 }

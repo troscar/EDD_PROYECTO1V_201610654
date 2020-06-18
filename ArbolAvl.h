@@ -54,8 +54,10 @@ class AVL {
    // Aplicar una funci�n a cada elemento del �rbol:
    void InOrden(void (*func)(string&, int) , Nodo *nodo=NULL, bool r=true);
    void PreOrden(void (*func)(string&, int) , Nodo *nodo=NULL, bool r=true);
+   void PreOrdenGRAFICAR(Nodo *nodo=NULL, bool r=true);
    void PostOrden(void (*func)(string&, int) , Nodo *nodo=NULL, bool r=true);
    void Graficar();
+   void MostrarGRAFICAR(Nodo *cabeza);
   private:
    // Funciones de equilibrado:
    void Equilibrar(Nodo *nodo, int, bool);
@@ -456,6 +458,39 @@ void Mostrar(string &d, int FE)
    cout << d << "(" << FE << "),";
 }
 
+string cuerpograph="";
+
+void AVL::MostrarGRAFICAR(Nodo *cabeza){
+   cuerpograph = cuerpograph + "{rank=same;"+cabeza->dato+";}\n";
+   if((cabeza->izquierdo!=0)&&(cabeza->derecho!=0)){
+      cuerpograph = cuerpograph +"{rank=same;\""+cabeza->izquierdo->dato+"\";\""+cabeza->derecho->dato+"\";} \n";
+      cuerpograph = cuerpograph + "\""+cabeza->dato+"\"->\""+cabeza->izquierdo->dato+"\";\n";
+      cuerpograph = cuerpograph + "\""+cabeza->dato+"\"->\""+cabeza->derecho->dato+"\";\n";
+   }
+   if((cabeza->izquierdo==0)&&(cabeza->derecho!=0)){
+      cuerpograph = cuerpograph +"{rank=same;\""+cabeza->derecho->dato+"\";} \n";
+      cuerpograph = cuerpograph + "\""+cabeza->dato+"\"->\""+cabeza->derecho->dato+"\";\n";
+   }
+   if((cabeza->izquierdo!=0)&&(cabeza->derecho==0)){
+      cuerpograph = cuerpograph +"{rank=same;\""+cabeza->izquierdo->dato+"\";} \n";
+      cuerpograph = cuerpograph + "\""+cabeza->dato+"\"->\""+cabeza->izquierdo->dato+"\";\n";
+   }
+   
+}
+
+void AVL::PreOrdenGRAFICAR(Nodo *nodo, bool r)
+{
+   if(r){ 
+      nodo = raiz;
+      cuerpograph = cuerpograph + "{rank=same;"+nodo->dato+";}";
+   }
+
+
+   MostrarGRAFICAR(nodo);
+   if(nodo->izquierdo!=0){ PreOrdenGRAFICAR(nodo->izquierdo, false);}
+   if(nodo->derecho!=0) PreOrdenGRAFICAR(nodo->derecho, false);
+}
+
 void AVL::Graficar(){
             int q = 0 ;ofstream file;
             string cuerpo="",base ="";
@@ -464,7 +499,8 @@ void AVL::Graficar(){
             file << "digraph G{ \n" ;
             file << "nodesep=0.8;\n";
             file << "ranksep=0.5;\n" ;
-            
+            PreOrdenGRAFICAR(NULL,true);
+            /*
             //file <<"{node[style=invis,label=""]; cx_30;\n}\n{node[style=invis, label="", width=.1]; ocx_45; ocx_20;\n}";
             ///NIVEL 0
             file <<"{rank=same;\"";
@@ -493,7 +529,7 @@ void AVL::Graficar(){
                 file<<cuerpo;
             }
             //cout<<"///////////////////////// fin NIVEL 1///////////////////////////////";
-            //cout<<d1;
+            /*cout<<d1;
             /////////NIVEL 2
             cuerpo ="";d=0;
             if(d1==1){
@@ -536,18 +572,15 @@ void AVL::Graficar(){
                     file<<"\"" <<raiz->derecho->derecho->dato<< "\";";
                     cuerpo=cuerpo+"\""+raiz->derecho->dato+"\""+"->" + "\""+raiz->derecho->derecho->dato+"\";\n";
                 }
-            }
+            }*/
+            file<<cuerpograph;
             file<<"}\n";
-            file << cuerpo;
-            ///NIVEL 3*/
-
-            
-            ///file <<"}";
             file.close();
             system(str1.c_str());
             system("Reportes\\ReporteARBOL.png");
 
         }
+
 
 /*
 int main()

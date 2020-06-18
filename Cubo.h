@@ -391,7 +391,7 @@ class Cubo
                 cout   << "-----fin fila-----"<<endl;
             }
             cout << "---------------------------------------------"<< endl;       
-            cout << "---------FIN DE album -----------"<< endl;      
+            cout << "---------FIN DE Cubo -----------"<< endl;      
         }
 
 

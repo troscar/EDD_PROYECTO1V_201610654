@@ -58,7 +58,7 @@ void menu()
                 cout<< ">> ...Ingresar Empresa...:  <<" <<endl;
                 cin >> empre;
                 //busscar USUARIO Y CONFIRMAR CONTRASEÑAS
-                Matriz->recorrer_cubo_en_colum();
+                ///Matriz->recorrer_cubo_en_colum();
                 //verificar = Matriz->buscar_nodo_(usuario);
                 //if(verificar!=0){
                     //if((verificar->getPass().compare(passw))&&(verificar->getYear().compare(depar))&& (verificar->getMonth().compare(empre)))
@@ -69,18 +69,27 @@ void menu()
                  // Un �rbol de enteros
    
 
-   // Inserci�n de nodos en �rbol:
-   ArbolInt.Insertar("a");
-   ArbolInt.Insertar("z");
-   ArbolInt.Insertar("x");
-   ArbolInt.Insertar("b");
-   ArbolInt.Insertar("b");
-   ArbolInt.Insertar("m");
-   cout<< " . " <<endl;
+                // Inserci�n de nodos en �rbol:
+                ArbolInt.Insertar("a");
+                ArbolInt.Insertar("z");
+                ArbolInt.Insertar("d");
+                ArbolInt.Insertar("x");
+                ArbolInt.Insertar("c");
+                ArbolInt.Insertar("i");
+                ArbolInt.Insertar("m");
+                cout<< " . " <<endl;
 
-   cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
+                cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
+                ArbolInt.PostOrden(Mostrar);
+                cout << endl;
+                ArbolInt.PreOrden(Mostrar);
+                cout << endl;
+                ArbolInt.InOrden(Mostrar);
+                cout << endl;
+
                 ArbolInt.Graficar();
-                
+
+                                
                 system("pause");
             break;
         case 2:

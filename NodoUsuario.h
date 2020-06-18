@@ -2,6 +2,8 @@
 #define NODOUSUARIO_H_INCLUDED
 #include <iostream>
 #include <string>
+#include "ArbolAvl.h"
+
 using namespace std;
 
 class NodoUsuario{
@@ -9,17 +11,19 @@ class NodoUsuario{
         NodoUsuario(string name_,string pass,string ){
             name = name_;
             password = pass;
-            year = "0";
-            pass = "0";
+            departamento = "";
+            empresa = "";
 
             next = 0;
-            before = 0
+            before = 0;
         }
     private:
     string name;
     string password;
-    string year;
-    string  pass;
+    string departamento;
+    string empresa;
+    AVL arboll;
+    
 
     NodoUsuario *next;
     NodoUsuario *before;
