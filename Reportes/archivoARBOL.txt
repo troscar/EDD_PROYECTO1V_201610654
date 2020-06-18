@@ -1,0 +1,9 @@
+digraph G{ 
+nodesep=0.8;
+ranksep=0.5;
+{rank=same;"x";}
+
+{rank=same;"b";"z";}
+"x"->"b";
+"x"->"z";
+}

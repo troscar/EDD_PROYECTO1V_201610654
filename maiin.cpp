@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Cubo.h"
 #include "NodoCubo.h" 
+#include "ArbolAvl.h"
 
 using namespace std;
 
@@ -34,11 +35,13 @@ void menu()
     noodo = new NodoCubo("Julio","Max","Guate","julio");
     Matriz->insertar_nodo_conectando(noodo);Matriz->recorrer_cubo_en_colum();
     Matriz->recorrer_cubo_en_fila();
+    AVL ArbolInt;
     while(opcion!=6){
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Renta de Activos  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%% 1. Iniciar Sesion  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Ingresar Opcion:  %%%%%%%%%%%%%%%%%%%"<<endl;
         cin >> opcion; 
+
         switch (opcion)
         {
         case 1:    
@@ -63,7 +66,20 @@ void menu()
                         
                     }
                 }*/
-                
+                 // Un �rbol de enteros
+   
+
+   // Inserci�n de nodos en �rbol:
+   ArbolInt.Insertar("a");
+   ArbolInt.Insertar("z");
+   ArbolInt.Insertar("x");
+   ArbolInt.Insertar("b");
+   ArbolInt.Insertar("b");
+   ArbolInt.Insertar("m");
+   cout<< " . " <<endl;
+
+   cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
+                ArbolInt.Graficar();
                 
                 system("pause");
             break;

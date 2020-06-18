@@ -361,7 +361,7 @@ class Cubo
                 cout   << "-----fin columna-----"<<endl;
             }
             cout << "---------------------------------------------"<< endl;       
-            cout << "---------FIN DE album -----------"<< endl;
+            cout << "---------FIN DE Cubo -----------"<< endl;
         }
         
         void recorrer_cubo_en_fila(){

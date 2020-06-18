@@ -55,7 +55,6 @@ class AVL {
    void InOrden(void (*func)(string&, int) , Nodo *nodo=NULL, bool r=true);
    void PreOrden(void (*func)(string&, int) , Nodo *nodo=NULL, bool r=true);
    void PostOrden(void (*func)(string&, int) , Nodo *nodo=NULL, bool r=true);
-   void Graficar();
   private:
    // Funciones de equilibrado:
    void Equilibrar(Nodo *nodo, int, bool);
@@ -455,100 +454,6 @@ void Mostrar(string &d, int FE)
 {
    cout << d << "(" << FE << "),";
 }
-
-void AVL::Graficar(){
-            int q = 0 ;ofstream file;
-            string cuerpo="",base ="";
-            string str1 = "dot -Tpng Reportes\\archivoARBOL.txt -o Reportes\\ReporteARBOL.png";
-            file.open("Reportes\\archivoARBOL.txt");
-            file << "digraph G{ \n" ;
-            file << "nodesep=0.8;\n";
-            file << "ranksep=0.5;\n" ;
-            
-            //file <<"{node[style=invis,label=""]; cx_30;\n}\n{node[style=invis, label="", width=.1]; ocx_45; ocx_20;\n}";
-            ///NIVEL 0
-            file <<"{rank=same;\"";
-            file << raiz->dato;
-            file << "\";}\n"; int d =0,d1=0;
-            if(raiz->izquierdo!=0||raiz->derecho!=0){
-                ///NIVEL 1
-               
-                if(raiz->izquierdo!=0){
-                    file<< "\n{rank=same;";
-                    file<<"\"" <<raiz->izquierdo->dato<< "\";";
-                    cuerpo=cuerpo + "\""+raiz->dato+"\""+"->"+"\"" +raiz->izquierdo->dato+ "\";\n";
-                    d=1;
-                }
-                if(raiz->derecho!=0){
-                    if(d==0){
-                        file<< "\n{rank=same;";
-                    }
-                    file<<"\"" <<raiz->derecho->dato<< "\";";
-                    cuerpo=cuerpo+"\""+raiz->dato+"\""+"->" + "\""+raiz->derecho->dato+"\";\n";
-                    if(raiz->derecho->izquierdo!=0 || raiz->derecho->derecho!=0){
-                        d1=d1+2;
-                    }
-                }
-                file<<"}\n";
-                file<<cuerpo;
-            }
-            //cout<<"///////////////////////// fin NIVEL 1///////////////////////////////";
-            //cout<<d1;
-            /////////NIVEL 2
-            cuerpo ="";d=0;
-            if(d1==1){
-                file<< "\n{rank=same;";
-                if(raiz->izquierdo->izquierdo!=0){
-                    file<<"\"" <<raiz->izquierdo->izquierdo->dato<< "\";";
-                    cuerpo=cuerpo + "\""+raiz->izquierdo->dato+"\""+"->"+"\"" +raiz->izquierdo->izquierdo->dato+ "\";\n";
-                }
-                if(raiz->izquierdo->derecho!=0){
-                    file<<"\"" <<raiz->izquierdo->derecho->dato<< "\";";
-                    cuerpo=cuerpo+"\""+raiz->izquierdo->dato+"\""+"->" + "\""+raiz->izquierdo->derecho->dato+"\";\n";
-                }///----------------------------
-            }
-            if (d1==2){
-                file<< "\n{rank=same;";
-                if(raiz->derecho->izquierdo!=0){
-                    file<<"\"" <<raiz->derecho->izquierdo->dato<< "\";";
-                    cuerpo=cuerpo + "\""+raiz->izquierdo->dato+"\""+"->"+"\"" +raiz->izquierdo->izquierdo->dato+ "\";\n";
-                }
-                if(raiz->derecho->derecho!=0){
-                    file<<"\"" <<raiz->derecho->derecho->dato<< "\";";
-                    cuerpo=cuerpo+"\""+raiz->derecho->dato+"\""+"->" + "\""+ raiz->derecho->derecho->dato+"\";\n";
-                }
-            }
-            if(d1==3){
-                file<< "\n{rank=same;";
-                if(raiz->izquierdo->izquierdo!=0){
-                    file<<"\"" <<raiz->izquierdo->izquierdo->dato<< "\";";
-                    cuerpo=cuerpo + "\""+raiz->izquierdo->dato+"\""+"->"+"\"" +raiz->izquierdo->izquierdo->dato+ "\";\n";
-                }
-                if(raiz->izquierdo->derecho!=0){
-                    file<<"\"" <<raiz->izquierdo->derecho->dato<< "\";";
-                    cuerpo=cuerpo+"\""+raiz->izquierdo->dato+"\""+"->" + "\""+raiz->izquierdo->derecho->dato+"\";\n";
-                }
-                if(raiz->derecho->izquierdo!=0){
-                    file<<"\"" <<raiz->derecho->izquierdo->dato<< "\";";
-                    cuerpo=cuerpo + "\""+raiz->izquierdo->dato+"\""+"->"+"\"" +raiz->izquierdo->izquierdo->dato+ "\";\n";
-                }
-                if(raiz->derecho->derecho!=0){
-                    file<<"\"" <<raiz->derecho->derecho->dato<< "\";";
-                    cuerpo=cuerpo+"\""+raiz->derecho->dato+"\""+"->" + "\""+raiz->derecho->derecho->dato+"\";\n";
-                }
-            }
-            file<<"}\n";
-            file << cuerpo;
-            ///NIVEL 3*/
-
-            
-            ///file <<"}";
-            file.close();
-            system(str1.c_str());
-            system("Reportes\\ReporteARBOL.png");
-
-        }
-
 /*
 int main()
 {
