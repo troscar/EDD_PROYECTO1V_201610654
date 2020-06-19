@@ -41,7 +41,6 @@ class NodoCubo{
         string getMonth(){ return month;}
         string getYear() {return year;}
         string getPass(){return pass;}
-        //ArbolAvl *getarbol(){return arbol;}
         
 
         NodoCubo *getNext(){ return next;}

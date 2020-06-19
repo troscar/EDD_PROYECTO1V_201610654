@@ -1,15 +1,15 @@
 digraph G{ 
-subgraph cluster0 {node [style=filled];"Admin"->"Max"->"Japon";
+subgraph cluster0 {node [style=filled];"Admin"->"e"->"t";
 label = "depar0"
 ;}
-subgraph cluster1 {node [style=filled];"Guate"->"Julio";
+subgraph cluster1 {node [style=filled];"r"->"d";
 label = "depar1"
 ;}
-subgraph cluster2 {node [style=filled];"Suchite"->"Renaldo"->"Arturo";
+subgraph cluster2 {node [style=filled];"y"->"g";
 label = "depar2"
 ;}
-"Admin"->"Guate"->"Suchite";
-"Max"->"Julio"->"Renaldo";
-"Japon"->"Arturo";
+"Admin"->"r"->"y";
+"e"->"d";
+"t"->"g";
 
 }

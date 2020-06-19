@@ -1,34 +1,39 @@
-#ifndef NODOUSUARIO_H_INCLUDED
-#define NODOUSUARIO_H_INCLUDED
+#ifndef NODOACTIVO_H_INCLUDED
+#define NODOACTIVO_H_INCLUDED
 #include <iostream>
 #include <string>
-#include "ArbolAvl.h"
-#include "ListaDobleC.h"
 
 using namespace std;
 
-class NodoUsuario{
+class NodoActivo{
     public:
-        NodoUsuario(string name_,string pass,string ){
+        NodoActivo(string name_,string desc_,string codi_,string prop_,string comp_,string id_){
             name = name_;
-            password = pass;
-            departamento = "";
-            empresa = "";
-
-            next = 0;
-            before = 0;
+            descripcion =desc_;
+            codigo = codi_;
+            propietario = prop_;
+            Comprador =comp_;
+            ID = id_;
         }
+    string getname(){return name;};
+    string getdescripcion(){return descripcion;};
+    string getcodigo(){return codigo;};
+    string getpropietario(){return propietario;};
+    string getComprador(){return Comprador;};
+    string getID(){return ID;};
 
+    void setname(string n){name=n;};
+    void setdescripcion(string n){descripcion=n;};
+    void setcodigo(string n){codigo=n;};
+    void setpropietario(string n){propietario=n;};
+    void setComprador(string n){Comprador=n;};
+    void setID(string n){ID=n;};
     private:
     string name;
-    string password;
-    string departamento;
-    string empresa;
-    AVL arboll;
-
-    
-
-    NodoUsuario *next;
-    NodoUsuario *before;
+    string descripcion;
+    string codigo;
+    string propietario;
+    string Comprador;
+    string ID;
 };
 #endif
