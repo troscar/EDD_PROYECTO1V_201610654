@@ -3,7 +3,14 @@
 #include <fstream>
 #include "Cubo.h"
 #include "NodoCubo.h" 
+//#include "NodoUsuario.h"
 #include "ArbolAvl.h"
+#include "ListaDobleC.h"
+#include "ListaEnlazada.h"
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
 
 using namespace std;
 
@@ -16,7 +23,9 @@ void menu ();
 
     Cubo *Matriz = new Cubo("Admin");
     NodoCubo *verificar; 
-    NodoCubo *noodo;
+    NodoCubo *noodousuario;
+    //Lista<NodoUsuario> *Usuarios;
+   // ListaDobleC<NodoActivo> *Activos;
     
 int main()
 {
@@ -26,20 +35,27 @@ int main()
 
     return 0;
 }
-
 void menu()
 {   
     int opcion = 0;
     string nombre = "",usuario = "",passw = "", depar = "", empre = "";
     string todo;
-    noodo = new NodoCubo("Julio","Max","Guate","julio");
-    Matriz->insertar_nodo_conectando(noodo);Matriz->recorrer_cubo_en_colum();
+    
+    noodousuario = new NodoCubo("Julio","Max","Guate","julio");
+    Matriz->insertar_nodo_conectando(noodousuario);
+    noodousuario = new NodoCubo("Renaldo","Max","Suchite","julio");
+    Matriz->insertar_nodo_conectando(noodousuario);
+    noodousuario = new NodoCubo("Arturo","Japon","Suchite","arturo");
+    Matriz->insertar_nodo_conectando(noodousuario);
+    Matriz->recorrer_cubo_en_colum();
     Matriz->recorrer_cubo_en_fila();
+    Matriz->GRAficar();
     AVL ArbolInt;
     while(opcion!=6){
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Renta de Activos  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%% 1. Iniciar Sesion  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Ingresar Opcion:  %%%%%%%%%%%%%%%%%%%"<<endl;
+        
         cin >> opcion; 
 
         switch (opcion)
@@ -47,7 +63,7 @@ void menu()
         case 1:    
                 system("cls");
                 verificar = 0;
-                cout<< "%%%%%%%%%%%%%%%%%%%% Renta de Activos %%%%%%%%%%%%%%%%%%%%"<<endl;
+                cout<< "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
                 cout<< "%%%%%%%%%%%%%%%%%%%%      Login       %%%%%%%%%%%%%%%%%%%%"<<endl;
                 cout<< ">> ...Ingresar Usuario...: <<" <<endl;
                 cin >> usuario;
@@ -79,13 +95,14 @@ void menu()
                 ArbolInt.Insertar("m");
                 cout<< " . " <<endl;
 
-                cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
+                /*cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
                 ArbolInt.PostOrden(Mostrar);
                 cout << endl;
                 ArbolInt.PreOrden(Mostrar);
                 cout << endl;
                 ArbolInt.InOrden(Mostrar);
-                cout << endl;
+                cout << endl;*/
+                //ArbolInt.Borrar("d");
 
                 ArbolInt.Graficar();
 

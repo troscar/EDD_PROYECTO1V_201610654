@@ -17,6 +17,7 @@ class NodoUsuario{
             next = 0;
             before = 0;
         }
+        
     private:
     string name;
     string password;

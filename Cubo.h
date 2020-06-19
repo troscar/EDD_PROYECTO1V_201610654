@@ -394,7 +394,6 @@ class Cubo
             cout << "---------FIN DE Cubo -----------"<< endl;      
         }
 
-
         NodoCubo* buscar_nodo_(string nombre){
             NodoCubo* auxFila = root;
             NodoCubo* auxColu;
@@ -421,14 +420,58 @@ class Cubo
             }
             return 0;
         }
+        
+        string cuerpo;
 
         void GRAficar(){
+            NodoCubo* filla;
+            NodoCubo* collumna;
+            NodoCubo* auxfi=root;
+            NodoCubo* auxco=root;
+            int aux =0;
             ofstream file;
-            file.open("C:/ruta/archivos/archivo.txt");
-            file << "primera línea\n";
-            file << "segunda línea\n";
-            file << "tercera línea\n";
+            string cuerpograph="",base ="";
+            string str1 = "dot -Tpng Reportes\\archivoCubo.txt -o Reportes\\ReporteCubo.png";
+            file.open("Reportes\\archivoCubo.txt");
+            file << "digraph G{ \n" ;
+            while(auxco!=0){
+                auxfi = auxco;
+                cuerpograph = cuerpograph+"subgraph cluster" +to_string(aux)+" {";
+                cuerpograph = cuerpograph+"node [style=filled];";
+                while (auxfi!=0){
+                    if(auxfi->getDown()!=0){
+                        cuerpograph = cuerpograph + "\""+auxfi->getName()+"\"->";
+                    }else{
+                        cuerpograph = cuerpograph + "\""+auxfi->getName()+"\";\n";
+                    }
+                    auxfi= auxfi->getDown();
+                    
+                }
+                cuerpograph = cuerpograph + "label = \"depar"+to_string(aux)+"\"\n;";
+                aux ++;
+                cuerpograph = cuerpograph + "}\n";
+                auxco = auxco->getNext();
+            }
+            auxfi=root;
+            while(auxfi!=0){
+                auxco = auxfi;
+                while (auxco!=0){
+                    if(auxco->getNext()!=0){
+                        cuerpograph = cuerpograph + "\""+auxco->getName()+"\"->";
+                    }else{
+                        cuerpograph = cuerpograph + "\""+auxco->getName()+"\";\n";
+                    }
+                    auxco= auxco->getNext();
+                    
+                }
+                auxfi = auxfi->getDown();
+            }
+            file<<cuerpograph;
+            file<<"\n";
+            file<<"}\n";
             file.close();
+            system(str1.c_str());
+            system("Reportes\\ReporteCubo.png");
 
         }
 
