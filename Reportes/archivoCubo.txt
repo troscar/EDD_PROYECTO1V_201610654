@@ -1,15 +1,7 @@
 digraph G{ 
-subgraph cluster0 {node [style=filled];"Admin"->"e"->"t";
+subgraph cluster0 {node [style=filled];"Admin";
 label = "depar0"
 ;}
-subgraph cluster1 {node [style=filled];"r"->"d";
-label = "depar1"
-;}
-subgraph cluster2 {node [style=filled];"y"->"g";
-label = "depar2"
-;}
-"Admin"->"r"->"y";
-"e"->"d";
-"t"->"g";
+"Admin";
 
 }

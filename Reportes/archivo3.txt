@@ -1,0 +1,4 @@
+digraph G{ 
+node [shape=box]
+node0 [label="producto1"];
+}

@@ -1,0 +1,8 @@
+digraph G{ 
+node [shape=box]
+node0 [label="producto1 " , width = 1.5, style = filled, fillcolor = firebrick1,];
+
+ node0 -> node0[dir=back];
+
+ node0 -> node0;
+}

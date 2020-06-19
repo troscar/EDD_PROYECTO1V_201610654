@@ -7,13 +7,16 @@ using namespace std;
 
 class NodoActivo{
     public:
-        NodoActivo(string name_,string desc_,string codi_,string prop_,string comp_,string id_){
+        NodoActivo(string name_,string desc_,string codi_,string prop_,string comp_,string id_,string deppa,string emmpre){
             name = name_;
             descripcion =desc_;
             codigo = codi_;
             propietario = prop_;
             Comprador =comp_;
             ID = id_;
+            depa = deppa;
+            empre = emmpre;
+
         }
     string getname(){return name;};
     string getdescripcion(){return descripcion;};
@@ -21,6 +24,8 @@ class NodoActivo{
     string getpropietario(){return propietario;};
     string getComprador(){return Comprador;};
     string getID(){return ID;};
+    string getDepa(){return depa;};
+    string getEmpre(){return empre;};
 
     void setname(string n){name=n;};
     void setdescripcion(string n){descripcion=n;};
@@ -35,5 +40,7 @@ class NodoActivo{
     string propietario;
     string Comprador;
     string ID;
+    string depa;
+    string empre;
 };
 #endif
