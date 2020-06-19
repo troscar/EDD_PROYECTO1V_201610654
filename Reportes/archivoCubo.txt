@@ -1,7 +1,23 @@
 digraph G{ 
-subgraph cluster0 {node [style=filled];"Admin";
+subgraph cluster0 {node [style=filled];"Admin"->"w"->"d"->"x"->"y";
 label = "depar0"
 ;}
-"Admin";
+subgraph cluster1 {node [style=filled];"c"->"z";
+label = "depar1"
+;}
+subgraph cluster2 {node [style=filled];"e"->"q";
+label = "depar2"
+;}
+subgraph cluster3 {node [style=filled];"f"->"s";
+label = "depar3"
+;}
+subgraph cluster4 {node [style=filled];"u"->"t";
+label = "depar4"
+;}
+"Admin"->"c"->"e"->"f"->"u";
+"w"->"q";
+"d"->"s";
+"x"->"z";
+"y"->"t";
 
 }

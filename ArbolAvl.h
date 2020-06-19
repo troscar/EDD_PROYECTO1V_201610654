@@ -88,7 +88,7 @@ void AVL::Insertar(const string dat)
 {
    Nodo *padre = NULL;
 
-   cout << "Insertar: " << dat << endl;
+   //cout << "Insertar: " << dat << endl;
    actual = raiz;
    // Buscar el dato en el �rbol, manteniendo un puntero al nodo padre
    while(!Vacio(actual) && dat.compare(actual->dato)!=0) {
