@@ -20,7 +20,6 @@ void menu ();
 
 //ArbolBB* Arbol = new ArbolBB();
 // CLASE DE EJEMPLO QUE SE ALMACENARA EN LA PILA'
-
     Cubo *Matriz = new Cubo("Admin");
     NodoCubo *verificar; 
     NodoCubo *noodousuario;
@@ -41,16 +40,7 @@ void menu()
     string nombre = "",usuario = "",passw = "", depar = "", empre = "";
     string todo;
     
-    noodousuario = new NodoCubo("Julio","Max","Guate","julio");
-    Matriz->insertar_nodo_conectando(noodousuario);
-    noodousuario = new NodoCubo("Renaldo","Max","Suchite","julio");
-    Matriz->insertar_nodo_conectando(noodousuario);
-    noodousuario = new NodoCubo("Arturo","Japon","Suchite","arturo");
-    Matriz->insertar_nodo_conectando(noodousuario);
-    Matriz->recorrer_cubo_en_colum();
-    Matriz->recorrer_cubo_en_fila();
-    Matriz->GRAficar();
-    AVL ArbolInt;
+    
     while(opcion!=6){
         cout<< ">> %%%%%%%%%%%%%%%%%%%  Renta de Activos  %%%%%%%%%%%%%%%%%%%"<<endl;
         cout<< ">> %%%%%%%%%%%%%%%%%%% 1. Iniciar Sesion  %%%%%%%%%%%%%%%%%%%"<<endl;

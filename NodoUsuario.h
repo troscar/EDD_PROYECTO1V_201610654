@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "ArbolAvl.h"
+#include "ListaDobleC.h"
 
 using namespace std;
 
@@ -17,13 +18,14 @@ class NodoUsuario{
             next = 0;
             before = 0;
         }
-        
+
     private:
     string name;
     string password;
     string departamento;
     string empresa;
     AVL arboll;
+
     
 
     NodoUsuario *next;
