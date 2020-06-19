@@ -33,17 +33,17 @@ int main()
 {
     noodoUsuarioaux = new NodoUsuario("a","a","a","a");
     ListaU->add_first(noodoUsuarioaux);
-    hiperAux= new NodoActivo("producto6","descripcion","15","yo","alguien","0001","Guate","Max");
+    hiperAux= new NodoActivo("producto6","descripcion","11110","yo","alguien","0001","Guate","Max");
     ListaActivos->add_last(hiperAux);
-    hiperAux= new NodoActivo("producto5","descripcion","15","yo","alguien","0001","Guate","Max");
+    hiperAux= new NodoActivo("producto5","descripcion","11111","yo","alguien","0001","Guate","Max");
     ListaActivos->add_last(hiperAux);
-    hiperAux= new NodoActivo("producto4","descripcion","15","yo","alguien","0001","Guate","Max");
+    hiperAux= new NodoActivo("producto4","descripcion","11112","yo","alguien","0001","Guate","Max");
     ListaActivos->add_last(hiperAux);
-    hiperAux= new NodoActivo("producto3","descripcion","15","yo","alguien","0001","Guate","Max");
+    hiperAux= new NodoActivo("producto3","descripcion","11113","yo","alguien","0001","Guate","Max");
     ListaActivos->add_last(hiperAux);
-    hiperAux= new NodoActivo("producto2","descripcion","15","yo","alguien","0001","Guate","Max");
+    hiperAux= new NodoActivo("producto2","descripcion","11114","yo","alguien","0001","Guate","Max");
     ListaActivos->add_last(hiperAux);
-    hiperAux= new NodoActivo("producto1","descripcion","15","yo","alguien","0001","Guate","Max");
+    hiperAux= new NodoActivo("producto1","descripcion","11115","yo","alguien","0001","Guate","Max");
     ListaTransacciones->add_last(hiperAux);
     ListaActivos->add_last(hiperAux);
     menu();
@@ -182,7 +182,7 @@ void Administrador(){
             contar=0;
             while (q<ListaActivos->getSize()){
                 hiperAux  = ListaActivos->get_element_at(q);
-                if ((hiperAux->getDepa().compare(nombrerepor.c_str())==0))
+                if ((hiperAux->getDepa().compare(nombrerepor.c_str())==0))   
                 {
                         base = "node" + std::to_string(contar) +" [label=\""+hiperAux->getname()+"\"];\n";
                         cuerpo = cuerpo + base;
@@ -450,7 +450,8 @@ void UsuariosNormales(){
                     hiperAux  = ListaActivos->get_element_at(q);
                     if ((hiperAux->getpropietario().compare(UsuarioUsando.c_str())!=0)&&(hiperAux->getComprador().compare("")!=0))
                     {
-                        cout<<"<< ID ="+hiperAux->getID()+"; Nombre = "+hiperAux->getname()+" >>"<<endl;   
+                        cout<<"<< ID ="+hiperAux->getID()+"; Nombre = "+hiperAux->getname()+" >>"<<endl;  
+                         
                     }
                     q++;
                 }
@@ -462,6 +463,7 @@ void UsuariosNormales(){
                     if ((hiperAux->getID().compare(to_string(idi).c_str())==0))
                     {
                         ListaActivos->get_element_at(q)->setComprador(UsuarioUsando);
+                        ListaTransacciones->add_last(ListaActivos->get_element_at(q));
                         break;
                     }
                     q++;
